@@ -80,14 +80,9 @@ const galleryMarkup = images.map(({preview, original, description}) => {
 
 gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
 
-const galleryLinks = document.querySelectorAll('.gallery-link');
-galleryLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-    event.preventDefault()
-    })
-})
-
 gallery.addEventListener('click', function(event){
+  event.preventDefault()
+
   if (event.target.nodeName !== 'IMG') return;
   const link = event.target.dataset.source 
   const instance = basicLightbox.create(`
